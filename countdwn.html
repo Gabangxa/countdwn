@@ -48,6 +48,7 @@
         <p id="years"></p>
         <p id="months"></p>
         <p id="days"></p>
+        <p id="weeks"></p>
     </div>
 
     <script>
@@ -70,10 +71,12 @@
             var remainingYears = deathDate.getFullYear() - new Date().getFullYear();
             var remainingMonths = (deathDate.getFullYear() - new Date().getFullYear()) * 12 + deathDate.getMonth() - new Date().getMonth();
             var remainingDays = Math.floor((deathDate - new Date()) / (1000 * 60 * 60 * 24));
+            var remainingWeeks = Math.floor(remainingDays / 7); // Calculate remaining weeks
             
             document.getElementById('years').innerText = "Years: " + Math.floor(remainingYears);
             document.getElementById('months').innerText = "Months: " + Math.floor(remainingMonths);
             document.getElementById('days').innerText = "Days: " + Math.floor(remainingDays);
+            document.getElementById('weeks').innerText = "Weeks: " + remainingWeeks; // Display remaining weeks
             
             document.getElementById('input-area').style.display = 'none';
             document.getElementById('result-area').style.display = 'block';
